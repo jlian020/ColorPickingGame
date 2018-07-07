@@ -1,16 +1,22 @@
-/* CLASSES*/
+/* TAGS */
+body {
+	background: black;
+}
+
+/* CLASSES */
 .squares {
 	width: 30%;
-	background: red;
-	padding-bottom: 30%;
-	border: 1px solid black;
 	float: left;
 	margin: 1.66%;
+	padding-bottom: 30%;
+	background: green;
+	border: round;
+	border-radius: 25px;
 }
 
 .container {
-	margin: auto;
-	max-width: 600px%;
+	width: 600px;
+	padding-top: 5%;
 }
 
 /* ID */
