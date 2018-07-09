@@ -19,12 +19,30 @@ body {
 	padding-top: 5%;
 }
 
+.btn-warning {
+	margin-right: 100px;
+}
+
 /* ID */
 #title {
 	text-align: center;
-	background: grey;
+	background: black;
+	padding-bottom: 0px;
+	color: white;
 }
 
 #rgbDisplay {
 	font-size: 100px;
+}
+
+#bar {
+	background: transparent;
+	height: 38px;
+	color: white;
+	text-align: center;
+}
+
+#message {
+	margin-right: 100px;
+	/*position: fixed;*/
 }

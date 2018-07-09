@@ -1,16 +1,22 @@
 var squares = document.querySelectorAll(".squares");
 var rgbDisplay = document.querySelector("#rgbDisplay");
 var title = document.querySelector("#title");
+var resetBoardButton = document.querySelector("#newBoard");
+var barMessage = document.querySelector("#message");
 
 var gameOver = false;
-// Gives out random colors for the squares
-for(var i = 0; i < squares.length; i++) {
-	squares[i].style.backgroundColor = "rgb(" + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ")";
-}
+var chosenColor = "";
 
-// Chooses a square as the one to guess
-var chosenColor = squares[Math.floor(Math.random() * squares.length)].style.backgroundColor;
-rgbDisplay.textContent = chosenColor;
+newColors();
+chooseColor();
+
+resetBoardButton.addEventListener("click", function() {
+	newColors();
+	chooseColor();
+	title.style.backgroundColor = "black";
+	gameOver = false;
+	barMessage.textContent = "";
+});
 
 // Make squares dissapear if it is not the correct one
 for(var i = 0; i < squares.length; i++) {
@@ -21,6 +27,8 @@ for(var i = 0; i < squares.length; i++) {
 			title.style.backgroundColor = chosenColor;
 			gameOver = true;
 
+			console.log("WINNER");
+			barMessage.textContent = "WINNER!";
 			changeAll(chosenColor);
 		}
 		else {
@@ -35,5 +43,16 @@ for(var i = 0; i < squares.length; i++) {
 function changeAll(color) {
 	for(var i = 0; i < squares.length; i++) {
 		squares[i].style.backgroundColor = color;
+	}
+}
+
+function chooseColor() {
+	chosenColor = squares[Math.floor(Math.random() * squares.length)].style.backgroundColor;
+	rgbDisplay.textContent = chosenColor;
+}
+
+function newColors() {
+	for(var i = 0; i < squares.length; i++) {
+		squares[i].style.backgroundColor = "rgb(" + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ")";
 	}
 }
